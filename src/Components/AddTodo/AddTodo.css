@@ -1,0 +1,6 @@
+.AddTodoContainer {
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(50, 163, 255);
+    padding: 10px;
+}

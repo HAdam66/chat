@@ -1,0 +1,20 @@
+.List {
+    display: flex;
+    flex-direction: row;
+    height: 40%;
+}
+
+.TodosDone, .TodosInProgress{
+    width: 50%;
+    height: 100%;
+}
+
+.Todo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.Todo>div {
+    width: 50%;
+}

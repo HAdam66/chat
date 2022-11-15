@@ -1,0 +1,18 @@
+.TodoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.TodoTable {
+    width: 40%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 15px;
+    text-align: center;
+}
+
+h2 {
+    background-color: rgb(184, 184, 184);
+    margin: 0;
+    border-radius: 15px 15px 0 0;
+}
