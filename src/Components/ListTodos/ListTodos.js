@@ -13,11 +13,11 @@ function ListTodos() {
 
     return (
         <div key={"list"} className='List'>
-            <div key={"inProgress"} className='TodosDone'>
+            <div key={"inProgress"} className='TodosInProgress'>
                 <h3>In Progress</h3>
-                {listTodo(todos, todoStatus1)}
+                {listTodo(todos, todoStatus1,)}
             </div>
-            <div key={"done"} className='TodosInProgress'>
+            <div key={"done"} className='TodosDone'>
                 <h3>Done</h3>
                 {listTodo(todos, todoStatus2)}
             </div>

@@ -1,6 +1,8 @@
 import { ref, onValue, set } from "firebase/database";
 import { db } from '../Service/firebase';
 import { v4 as uuidv4 } from 'uuid';
+import { FcOk, FcFullTrash, FcRedo } from "react-icons/fc";
+import "../Components/ListTodos/ListTodos.css"
 
 export const todoStatus1 = false;
 export const todoStatus2 = true;
@@ -29,20 +31,24 @@ export function loadTodo(setTodos) {
 
 export function listTodo(todos, todoStatus) {
     return todos !== null ? todos.map(data => {
-        console.log(data.ready)
+        console.log(todos)
         return (data.ready === todoStatus
             ?
             <div className="Todo" key={data.newId}>
                 <div>{data.todo}</div>
                 {data.ready === todoStatus1
                     ?
-                    <button id={data.newId} onClick={() => {
-                        makeReady(data, data.newId)
-                    }}>
-                        Done
-                    </button>
+                    <div className="IkonBox">
+                        <FcOk onClick={() => {
+                            makeReady(data, data.newId)
+                        }}/>
+                        <FcFullTrash />
+                    </div>
                     :
-                    null
+                    <div className="IkonBox">
+                        <FcRedo />
+                        <FcFullTrash />
+                    </div>
                 }
             </div>
             :
