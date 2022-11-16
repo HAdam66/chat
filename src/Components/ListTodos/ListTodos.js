@@ -1,5 +1,5 @@
 import React from 'react';
-import { listTodo, loadTodo } from '../../Service/service';
+import { filter, listTodo, loadTodo } from '../../Service/service';
 import "../ListTodos/ListTodos.css";
 import { todoStatus1, todoStatus2 } from '../../Service/service';
 
@@ -12,16 +12,16 @@ function ListTodos() {
     }, []);
 
     return (
-        <div className='ListContainer'>
-            <div className='ListBox'>
-                <h3>In Progress</h3>
-                <div className='TodosInProgress'>
+        <div key={'ListContainer'} className='ListContainer'>
+            <div key={'ListBox'} className='ListBox'>
+                <h3 key={'h3'}>In Progress {filter(todos, todoStatus1)}</h3>
+                <div key={'TodosInProgress'} className='TodosInProgress'>
                     {listTodo(todos, todoStatus1,)}
                 </div>
             </div>
-            <div className='ListBox'>
-                <h3>Done</h3>
-                <div className='TodosDone'>
+            <div key={'ListBox1'} className='ListBox'>
+                <h3 key={'h31'}>Done {filter(todos, todoStatus2)}</h3>
+                <div key={'TodosDone'} className='TodosDone'>
                     {listTodo(todos, todoStatus2)}
                 </div>
             </div>

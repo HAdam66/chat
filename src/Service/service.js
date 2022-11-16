@@ -1,4 +1,4 @@
-import { ref, onValue, set } from "firebase/database";
+import { ref, onValue, set, remove } from "firebase/database";
 import { db } from '../Service/firebase';
 import { v4 as uuidv4 } from 'uuid';
 import { FcOk, FcFullTrash, FcRedo } from "react-icons/fc";
@@ -31,23 +31,29 @@ export function loadTodo(setTodos) {
 
 export function listTodo(todos, todoStatus) {
     return todos !== null ? todos.map(data => {
-        console.log(todos)
         return (data.ready === todoStatus
             ?
-            <div className={`${data.ready}`}>
-                <p>{data.todo}</p>
+            <div key={data.newId} className={`${data.ready}`}>
+                <p key={data.todo}>{data.todo}</p>
                 {data.ready === todoStatus1
                     ?
-                    <div className="Ikons">
+                    <div key={"Ikons"} className="Ikons">
                         <FcOk size="1.5em" onClick={() => {
                             makeReady(data, data.newId)
                         }} />
-                        <FcFullTrash size="1.5em"/>
+                        <FcFullTrash size="1.5em" onClick={() => {
+                            del(data, data.newId)
+                        }} />
                     </div>
                     :
-                    <div className="Ikons">
-                        <FcRedo size="1.5em"/>
-                        <FcFullTrash size="1.5em"/>
+                    <div key={"Ikons2"} className="Ikons">
+                        <FcRedo size="1.5em" onClick={() => {
+                            removeTodod(data, data.newId)
+                        }}/>
+                        <FcFullTrash size="1.5em"
+                            onClick={() => {
+                                del(data.newId)
+                            }} />
                     </div>
                 }
             </div>
@@ -59,11 +65,32 @@ export function listTodo(todos, todoStatus) {
 };
 
 export function makeReady(todo, id) {
-    if (todo.newId === id) {
-        return set(ref(db, `${id}`), {
-            todo: todo.todo,
-            newId: todo.newId,
-            ready: todoStatus2
-        });
-    }
+    return set(ref(db, `${id}`), {
+        todo: todo.todo,
+        newId: todo.newId,
+        ready: todoStatus2
+    });
 };
+
+export function removeTodod(todo, id) {
+    return set(ref(db, `${id}`), {
+        todo: todo.todo,
+        newId: todo.newId,
+        ready: todoStatus1
+    });
+}
+
+export function filter(todos, todoStatus) {
+    const numberArray = [];
+    todos.map(data => {
+        if (data.ready === todoStatus) {
+            numberArray.push(data)
+        }
+        return data
+    })
+    return numberArray.length
+}
+
+export function del(id) {
+    remove(ref(db, `/${id}`));
+}
