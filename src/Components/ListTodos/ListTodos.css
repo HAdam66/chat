@@ -33,10 +33,6 @@
     border-radius: 10px;
 }
 
-.Todo>div {
-    width: 50%;
-}
-
 .IkonBox {
     display: flex;
     justify-content: space-around;
@@ -54,7 +50,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 50%;
+    width: 90%;
     font-size: 1.2em;
     border-radius: 7px;
     margin: 5px;
