@@ -34,20 +34,20 @@ export function listTodo(todos, todoStatus) {
         console.log(todos)
         return (data.ready === todoStatus
             ?
-            <div className="Todo" key={data.newId}>
-                <div>{data.todo}</div>
+            <div className={`${data.ready}`}>
+                <p>{data.todo}</p>
                 {data.ready === todoStatus1
                     ?
-                    <div className="IkonBox">
-                        <FcOk onClick={() => {
+                    <div className="Ikons">
+                        <FcOk size="1.5em" onClick={() => {
                             makeReady(data, data.newId)
-                        }}/>
-                        <FcFullTrash />
+                        }} />
+                        <FcFullTrash size="1.5em"/>
                     </div>
                     :
-                    <div className="IkonBox">
-                        <FcRedo />
-                        <FcFullTrash />
+                    <div className="Ikons">
+                        <FcRedo size="1.5em"/>
+                        <FcFullTrash size="1.5em"/>
                     </div>
                 }
             </div>

@@ -1,25 +1,29 @@
 import React from 'react';
 import { listTodo, loadTodo } from '../../Service/service';
 import "../ListTodos/ListTodos.css";
-import {todoStatus1, todoStatus2} from '../../Service/service';
+import { todoStatus1, todoStatus2 } from '../../Service/service';
 
 function ListTodos() {
 
     const [todos, setTodos] = React.useState([]);
-    
+
     React.useEffect(() => {
         loadTodo(setTodos)
     }, []);
 
     return (
-        <div key={"list"} className='List'>
-            <div key={"inProgress"} className='TodosInProgress'>
+        <div className='ListContainer'>
+            <div className='ListBox'>
                 <h3>In Progress</h3>
-                {listTodo(todos, todoStatus1,)}
+                <div className='TodosInProgress'>
+                    {listTodo(todos, todoStatus1,)}
+                </div>
             </div>
-            <div key={"done"} className='TodosDone'>
+            <div className='ListBox'>
                 <h3>Done</h3>
-                {listTodo(todos, todoStatus2)}
+                <div className='TodosDone'>
+                    {listTodo(todos, todoStatus2)}
+                </div>
             </div>
         </div>
     )
