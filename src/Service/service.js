@@ -42,7 +42,7 @@ export function listTodo(todos, todoStatus) {
                             makeReady(data, data.newId)
                         }} />
                         <FcFullTrash size="1.5em" onClick={() => {
-                            del(data, data.newId)
+                            del(data.newId)
                         }} />
                     </div>
                     :
