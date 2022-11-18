@@ -34,7 +34,7 @@ export function listTodo(todos, todoStatus) {
         return (data.ready === todoStatus
             ?
             <div key={data.newId} className={`${data.ready}`}>
-                <p key={data.todo}>{data.todo}</p>
+                <p key={data.todo} className={"Todo"}>{data.todo}</p>
                 {data.ready === todoStatus1
                     ?
                     <div key={"Ikons"} className="Ikons">

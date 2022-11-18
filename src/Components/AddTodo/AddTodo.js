@@ -12,7 +12,7 @@ function AddTodo() {
   return (
     <div className='AddTodoContainer'>
       <label>Create a new to do</label>
-      <input value={todo} onChange={handleTodo}></input>
+      <input maxLength={20} value={todo} onChange={handleTodo}></input>
       <button onClick={() => {
         create(todo, setTodo, todoStatus1);
       }}>Create</button>

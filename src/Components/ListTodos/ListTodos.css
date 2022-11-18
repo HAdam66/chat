@@ -6,6 +6,11 @@
     height: 70%;
 }
 
+.ListContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .ListBox {
     display: flex;
     flex-direction: column;
@@ -18,19 +23,13 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 150px;
+    height: 250px;
     overflow-y: scroll;
     scrollbar-width: thin;
 }
 
 .Todo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    height: 2em;
-    border: 1px solid black;
-    border-radius: 10px;
+    padding-left: 20px;
 }
 
 .IkonBox {
@@ -49,7 +48,7 @@
 .false, .true {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 90%;
     font-size: 1.2em;
     border-radius: 7px;
