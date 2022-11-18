@@ -1,24 +1,26 @@
-.List {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 70%;
-}
-
 .ListContainer {
     display: flex;
     flex-direction: column;
+    background-color: white;
 }
 
-.ListBox {
+.ListBox, .ListBoxDone {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px 20px;
+    border-radius: 10px;
 }
 
-.TodosDone,
-.TodosInProgress {
+.ListBox {
+    border-bottom: 1px solid #08808e;
+}
+
+.ListBoxDone {
+    border-bottom: 1px solid #c72d3e;
+}
+
+.List {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +28,32 @@
     height: 250px;
     overflow-y: scroll;
     scrollbar-width: thin;
+}
+
+.ListName, .ListNameDone {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.ListName{
+    background-color: #08808e;
+}
+
+.ListNameDone {
+    background-color: #c72d3e;
+}
+
+.ListName>h3 {
+    margin: 10px;
+    color: #a2c5c4;
+}
+
+.ListNameDone>h3 {
+    margin: 10px;
+    color: #ed9690;
 }
 
 .Todo {
@@ -38,11 +66,29 @@
 
 }
 
-.Ikons {
+.Icons {
     display: flex;
     align-items: center;
     justify-content: space-around;
     width: 40%;
+    height: 100%;
+}
+
+.Icon, .IconDone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    height: 3rem;
+    width: 3rem;
+}
+
+.Icon:hover {
+    background-color: #609da0;
+}
+
+.IconDone:hover {
+    background-color: #f0786f;
 }
 
 .false, .true {
@@ -56,9 +102,24 @@
 }
 
 .false {
-    background-color: rgba(198, 255, 198, 0.468);
+    color: #08808e;
+    background-color: #a2c5c4;
 }
 
 .true {
-    background-color: rgba(255, 198, 198, 0.468);
+    color: #c72d3e;
+    background-color: #ed9690;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .ListContainer {
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+    }
+
+    .ListBox, .ListBoxDone {
+        width: 50%;
+    }
 }

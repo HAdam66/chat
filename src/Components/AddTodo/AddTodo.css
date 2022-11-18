@@ -1,6 +1,23 @@
 .AddTodoContainer {
     display: flex;
     justify-content: space-around;
-    background-color: rgb(50, 163, 255);
+    background-color: #1d3334;
     padding: 10px;
+}
+
+.AddTodoContainer>button {
+    background-color: #a2c5c4;
+    border: none;
+    border-radius: 7px;
+    color: #1d3334;
+}
+
+.AddTodoContainer>input {
+    border-radius: 20px;
+    border: none;
+}
+
+label {
+    color: #a2c5c4;
+    font-size: large;
 }

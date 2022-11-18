@@ -8,10 +8,11 @@ function AddTodo() {
   const handleTodo = (e) => {
       setTodo(e.target.value)
   };
+  const Label = "Create a new to do"
 
   return (
     <div className='AddTodoContainer'>
-      <label>Create a new to do</label>
+      <label>{Label}</label>
       <input maxLength={20} value={todo} onChange={handleTodo}></input>
       <button onClick={() => {
         create(todo, setTodo, todoStatus1);

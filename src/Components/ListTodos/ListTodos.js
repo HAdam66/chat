@@ -1,11 +1,14 @@
 import React from 'react';
-import { filter, listTodo, loadTodo } from '../../Service/service';
+import { loadTodo } from '../../Service/service';
 import "../ListTodos/ListTodos.css";
 import { todoStatus1, todoStatus2 } from '../../Service/service';
+import ListForm from '../ListForm/ListForm';
 
 function ListTodos() {
 
     const [todos, setTodos] = React.useState([]);
+    const FirstLsit = "In Progress";
+    const SecondList = "Done";
 
     React.useEffect(() => {
         loadTodo(setTodos)
@@ -13,18 +16,8 @@ function ListTodos() {
 
     return (
         <div key={'ListContainer'} className='ListContainer'>
-            <div key={'ListBox'} className='ListBox'>
-                <h3 key={'h3'}>In Progress {filter(todos, todoStatus1)}</h3>
-                <div key={'TodosInProgress'} className='TodosInProgress'>
-                    {listTodo(todos, todoStatus1,)}
-                </div>
-            </div>
-            <div key={'ListBox1'} className='ListBox'>
-                <h3 key={'h31'}>Done {filter(todos, todoStatus2)}</h3>
-                <div key={'TodosDone'} className='TodosDone'>
-                    {listTodo(todos, todoStatus2)}
-                </div>
-            </div>
+            <ListForm todos={todos} status={todoStatus1} listName={FirstLsit} />
+            <ListForm todos={todos} status={todoStatus2} listName={SecondList} />
         </div>
     )
 }
