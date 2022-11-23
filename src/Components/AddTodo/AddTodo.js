@@ -19,6 +19,6 @@ function AddTodo() {
       }}>Create</button>
     </div>
   )
-}
+};
 
 export default AddTodo;
