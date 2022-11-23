@@ -40,4 +40,4 @@ function Icons(props) {
     )
 }
 
-export default Icons
+export default Icons;
